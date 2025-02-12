@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import { PopularTags } from '@/features/popular-tags'
 import { Search } from '@/features/search'
 
 export const AsideRight = () => {
   return (
     <div className='sticky top-0 h-screen space-y-4 px-3 py-3'>
       <Search />
-      {/* <PopularTags /> */}
+      <PopularTags />
       {/* <Recommendations /> */}
       <div className='flex flex-wrap gap-x-4 text-sm text-muted-foreground'>
         <Link href='/'>Terms of Service</Link>
