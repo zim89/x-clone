@@ -54,6 +54,9 @@ body {
     --muted: 210 13% 25%; /* hsl(210 13% 25%) */
     --muted-foreground: 205 5% 47%; /* hsl(205 5% 47%) */
 
+    --disabled: 180 1% 47%; /* hsl(180 1% 47%) */
+    --disabled-foreground: 208 19% 17%; /* hsl(208 19% 17%); */
+
     --accent: 204 87% 52%; /* hsl(204 87% 52%) */
     --accent-foreground: 210 40% 98%; /* hsl(210 40% 98%) */
 
