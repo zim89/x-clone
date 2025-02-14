@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { boolean } from 'zod'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/common/avatar'
 import { fileTypes, imageTypes } from '@/shared/constants'
 import type { ImageSettings } from '@/shared/types'
@@ -65,7 +66,8 @@ export const ShareToolbar = () => {
         {/* IMAGE EDITOR */}
         {isEditorOpen && previewURL && (
           <ImageEditor
-            onClose={() => setIsEditorOpen(false)}
+            open={isEditorOpen}
+            onOpenChange={() => setIsEditorOpen(false)}
             previewURL={previewURL}
             settings={settings}
             setSettings={setSettings}
