@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { boolean } from 'zod'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/common/avatar'
 import { fileTypes, imageTypes } from '@/shared/constants'
 import type { ImageSettings } from '@/shared/types'
@@ -29,7 +28,7 @@ export const ShareToolbar = () => {
 
   return (
     <form
-      className='flex gap-4'
+      className='flex gap-4 p-4'
       action={formData => shareAction(formData, settings)}
     >
       {/* AVATAR */}

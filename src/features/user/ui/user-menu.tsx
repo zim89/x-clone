@@ -19,6 +19,7 @@ export const UserMenu = () => {
             <AvatarImage src='https://github.com/shadcn.png' />
             <AvatarFallback>ZD</AvatarFallback>
           </Avatar>
+
           <div className='flex flex-1 items-center justify-between'>
             <div>
               <p className='text-sm font-bold'>Zim Dev</p>
