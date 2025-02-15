@@ -1,0 +1,12 @@
+model Follow {
+  @@map("follows")
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  // RELATIONS
+  followerId  String
+  followingId String
+
+  follower  User @relation("UserFollowers", fields: [followerId], references: [id])
+  following User @relation("UserFollowings", fields: [followingId], references: [id])
+}

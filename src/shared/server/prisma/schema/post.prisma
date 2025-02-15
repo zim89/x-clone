@@ -1,0 +1,26 @@
+model Post {
+  @@map("posts")
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  desc        String?  @db.VarChar(255)
+  img         String?
+  imgHeight   Int?
+  video       String?
+  isSensitive Boolean  @default(false)
+
+  // RELATIONS
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  rePostId Int?
+  rePost   Post?  @relation("RePosts", fields: [rePostId], references: [id])
+  rePosts  Post[] @relation("RePosts")
+
+  parentPostId Int?
+  parentPost   Post?  @relation("PostComments", fields: [parentPostId], references: [id])
+  comments     Post[] @relation("PostComments")
+
+  likes Like[]
+  saves SavedPosts[]
+}

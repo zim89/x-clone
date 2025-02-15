@@ -1,0 +1,22 @@
+model User {
+  @@map("users")
+  id          String   @id
+  email       String   @unique
+  username    String   @unique
+  displayName String?
+  bio         String?
+  location    String?
+  job         String?
+  website     String?
+  img         String?
+  cover       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // RELATIONS
+  posts Post[]
+  likes Like[]
+  saves SavedPosts[]
+  followers  Follow[] @relation("UserFollowers")
+  followings Follow[] @relation("UserFollowings")
+}

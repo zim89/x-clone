@@ -1,0 +1,12 @@
+model Like {
+  @@map("likes")
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  // RELATIONS
+  userId String
+  postId Int
+
+  user User @relation(fields: [userId], references: [id])
+  post Post @relation(fields: [postId], references: [id])
+}
