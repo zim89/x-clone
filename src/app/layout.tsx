@@ -1,17 +1,20 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { AsideLeft } from '@/widgets/aside-left'
-import { AsideRight } from '@/widgets/aside-right'
 import './globals.css'
+import { Providers } from './providers'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  display: 'swap',
+  adjustFontFallback: false,
 })
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  display: 'swap',
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
@@ -19,30 +22,17 @@ export const metadata: Metadata = {
   description: 'Next.js social media application project',
 }
 
-export default function RootLayout({
-  children,
-  modal,
-}: Readonly<{
+interface RootLayoutProps {
   children: React.ReactNode
-  modal: React.ReactNode
-}>) {
+}
+
+export default function AppLayout({ children }: Readonly<RootLayoutProps>) {
   return (
-    <html lang='en' className='dark' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen font-sans antialiased`}
       >
-        <div className='container mx-auto flex justify-center gap-2'>
-          <div className='w-[275px]'>
-            <AsideLeft />
-          </div>
-          <main className='w-[600px] border-x border-border'>
-            {children}
-            {modal}
-          </main>
-          <div className='w-[350px]'>
-            <AsideRight />
-          </div>
-        </div>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
