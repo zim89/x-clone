@@ -1,16 +1,18 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { auth } from '@clerk/nextjs/server'
+import { auth, currentUser } from '@clerk/nextjs/server'
 import { Feed } from '@/features/post'
 import { prisma } from '@/shared/lib'
 import { AppImage } from '@/shared/ui'
 
-export const UserPage = async ({
+export default async function UserPage({
   params,
 }: {
   params: Promise<{ username: string }>
-}) => {
-  const { userId } = await auth()
+}) {
+  // const { userId } = await auth()
+  const userr = await currentUser()
+  const userId = userr?.id
   const username = (await params).username
 
   const user = await prisma.user.findUnique({
