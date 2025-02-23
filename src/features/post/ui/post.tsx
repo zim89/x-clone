@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Repeat2 } from 'lucide-react'
-import { fileTypes, postTypes } from '@/shared/constants'
+import { PostTypeEnum } from '@/shared/constants'
 import { cn, imagekit } from '@/shared/lib'
 import type { FileDetailsResponse, PostType } from '@/shared/types'
 import { AppImage, AppVideo, UserAvatar } from '@/shared/ui'
@@ -28,10 +28,10 @@ export const Post = async ({ type }: { type?: PostType }) => {
 
       {/* POST CONTENT */}
       <div
-        className={cn('flex gap-4', type === postTypes.Status && 'flex-col')}
+        className={cn('flex gap-4', type === PostTypeEnum.Status && 'flex-col')}
       >
         {/* AVATAR */}
-        <UserAvatar className={type === postTypes.Status ? 'hidden' : ''} />
+        <UserAvatar className={type === PostTypeEnum.Status ? 'hidden' : ''} />
 
         {/* CONTENT */}
         <div className='flex flex-1 flex-col gap-2'>
@@ -41,19 +41,19 @@ export const Post = async ({ type }: { type?: PostType }) => {
               <div
                 className={cn(
                   'flex flex-wrap items-center gap-2',
-                  type === postTypes.Status && 'flex-col !items-start gap-0',
+                  type === PostTypeEnum.Status && 'flex-col !items-start gap-0',
                 )}
               >
                 <h2 className='text-md font-bold'>Lama Dev</h2>
                 <span
                   className={cn(
                     'text-muted-foreground',
-                    type === postTypes.Status && 'text-sm',
+                    type === PostTypeEnum.Status && 'text-sm',
                   )}
                 >
                   @lamaWebDev
                 </span>
-                {type !== postTypes.Status && (
+                {type !== PostTypeEnum.Status && (
                   <span className='text-muted-foreground'>1 day ago</span>
                 )}
               </div>
@@ -67,7 +67,7 @@ export const Post = async ({ type }: { type?: PostType }) => {
 
           {/* TEXT & MEDIA */}
           <Link href={`/lamaWebDev/status/123`}>
-            <p className={cn(type === postTypes.Status && 'text-lg')}>
+            <p className={cn(type === PostTypeEnum.Status && 'text-lg')}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
               animi. Laborum commodi aliquam alias molestias odio, ab in,
               reprehenderit excepturi temporibus, ducimus necessitatibus fugiat

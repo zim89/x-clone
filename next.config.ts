@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
       bodySizeLimit: '50mb',
     },
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      console.log('Server is running')
+    }
+    return config
+  },
 }
 
 export default nextConfig

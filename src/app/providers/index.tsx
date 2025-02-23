@@ -2,11 +2,11 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { QueryProvider } from './query-provider'
 import { ThemeProvider } from './theme-provider'
 
-interface ProvidersProps {
+export const Providers = ({
+  children,
+}: Readonly<{
   children: React.ReactNode
-}
-
-export const Providers = ({ children }: ProvidersProps) => {
+}>) => {
   return (
     <ClerkProvider>
       <ThemeProvider

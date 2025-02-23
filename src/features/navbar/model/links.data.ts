@@ -11,7 +11,7 @@ import {
   UsersRound,
   type LucideIcon,
 } from 'lucide-react'
-import { routes } from '@/shared/constants'
+import { AppRoutes } from '@/shared/config'
 
 interface NavLink {
   id: number
@@ -23,7 +23,7 @@ export const navLinks: NavLink[] = [
   {
     id: 1,
     label: 'Homepage',
-    href: routes.home,
+    href: AppRoutes.home,
     icon: Home,
   },
   {

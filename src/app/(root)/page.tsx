@@ -1,5 +1,13 @@
-import { HomePage } from '@/views/home-page'
+import { Feed } from '@/features/post'
+import { ShareToolbar } from '@/features/share-toolbar'
+import { TabsNavbar } from '@/features/tabs-navbar'
 
 export default function Home() {
-  return <HomePage />
+  return (
+    <div>
+      <TabsNavbar />
+      <ShareToolbar />
+      <Feed />
+    </div>
+  )
 }

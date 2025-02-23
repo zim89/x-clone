@@ -1,6 +1,6 @@
 'use server'
 
-import { imageTypes } from '@/shared/constants'
+import { ImageTypeEnum } from '@/shared/constants'
 import { imagekit } from '@/shared/lib'
 import type { ImageType } from '@/shared/types'
 
@@ -15,9 +15,9 @@ export const shareAction = async (
   const buffer = Buffer.from(bytes)
 
   const transformation = `w-600, ${
-    settings.type === imageTypes.Square
+    settings.type === ImageTypeEnum.Square
       ? 'ar-1-1'
-      : settings.type === imageTypes.Wide
+      : settings.type === ImageTypeEnum.Wide
         ? 'ar-16-9'
         : ''
   }`

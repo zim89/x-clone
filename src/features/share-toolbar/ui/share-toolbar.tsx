@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/shared/ui/common/avatar'
-import { fileTypes, imageTypes } from '@/shared/constants'
+import { FileTypeEnum, ImageTypeEnum } from '@/shared/constants'
 import type { ImageSettings } from '@/shared/types'
 import { shareAction } from '../actions'
 import { ImageEditor } from './image-editor'
@@ -14,7 +14,7 @@ export const ShareToolbar = () => {
   const [media, setMedia] = useState<File | null>(null)
   const [isEditorOpen, setIsEditorOpen] = useState(false)
   const [settings, setSettings] = useState<ImageSettings>({
-    type: imageTypes.Original,
+    type: ImageTypeEnum.Original,
     sensitive: false,
   })
 
@@ -48,7 +48,7 @@ export const ShareToolbar = () => {
         />
 
         {/* PREVIEW IMAGE */}
-        {media?.type.includes(fileTypes.Image) && previewURL && (
+        {media?.type.includes(FileTypeEnum.Image) && previewURL && (
           <ImagePreview
             previewURL={previewURL}
             settings={settings}
@@ -58,7 +58,7 @@ export const ShareToolbar = () => {
         )}
 
         {/* PREVIEW VIDEO */}
-        {media?.type.includes(fileTypes.Video) && previewURL && (
+        {media?.type.includes(FileTypeEnum.Video) && previewURL && (
           <VideoPreview previewURL={previewURL} setMedia={setMedia} />
         )}
 

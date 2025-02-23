@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
 import { XIcon } from 'lucide-react'
-import { imageTypes } from '@/shared/constants'
+import { ImageTypeEnum } from '@/shared/constants'
 import { cn } from '@/shared/lib'
 import type { ImageSettings } from '@/shared/types'
 
@@ -27,9 +27,10 @@ export const ImagePreview = ({
         height={600}
         className={cn(
           'w-full',
-          settings.type === imageTypes.Original && 'h-full object-contain',
-          settings.type === imageTypes.Wide && 'aspect-video object-cover',
-          settings.type === imageTypes.Square && 'aspect-square object-cover',
+          settings.type === ImageTypeEnum.Original && 'h-full object-contain',
+          settings.type === ImageTypeEnum.Wide && 'aspect-video object-cover',
+          settings.type === ImageTypeEnum.Square &&
+            'aspect-square object-cover',
         )}
       />
       <button

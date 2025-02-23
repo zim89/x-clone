@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/shared/ui/common/dialog'
-import { imageTypes } from '@/shared/constants'
+import { ImageTypeEnum } from '@/shared/constants'
 import { cn } from '@/shared/lib'
 import type { ImageSettings, ImageType } from '@/shared/types'
 
@@ -72,11 +72,11 @@ export const ImageEditor = ({
               height={600}
               className={cn(
                 'w-full',
-                settings.type === imageTypes.Original &&
+                settings.type === ImageTypeEnum.Original &&
                   'h-full object-contain',
-                settings.type === imageTypes.Wide &&
+                settings.type === ImageTypeEnum.Wide &&
                   'aspect-video object-cover',
-                settings.type === imageTypes.Square &&
+                settings.type === ImageTypeEnum.Square &&
                   'aspect-square object-cover',
               )}
             />
@@ -88,41 +88,41 @@ export const ImageEditor = ({
               <button
                 type='button'
                 className='group flex items-center gap-2 text-primary/80 transition-all duration-300 hover:text-primary'
-                onClick={() => onChangeType(imageTypes.Original)}
+                onClick={() => onChangeType(ImageTypeEnum.Original)}
               >
                 <ImageIcon
                   className={cn(
                     'stroke-[1.5px] transition-colors duration-300 group-hover:stroke-accent',
-                    settings.type === imageTypes.Original && 'stroke-accent',
+                    settings.type === ImageTypeEnum.Original && 'stroke-accent',
                   )}
                 />
-                {imageTypes.Original}
+                {ImageTypeEnum.Original}
               </button>
               <button
                 type='button'
                 className='group flex items-center gap-2 text-primary/80 transition-all duration-300 hover:text-primary'
-                onClick={() => onChangeType(imageTypes.Wide)}
+                onClick={() => onChangeType(ImageTypeEnum.Wide)}
               >
                 <RectangleHorizontalIcon
                   className={cn(
                     'size-7 stroke-[1.5px] transition-colors duration-300 group-hover:stroke-accent',
-                    settings.type === imageTypes.Wide && 'stroke-accent',
+                    settings.type === ImageTypeEnum.Wide && 'stroke-accent',
                   )}
                 />
-                {imageTypes.Wide}
+                {ImageTypeEnum.Wide}
               </button>
               <button
                 type='button'
                 className='group flex items-center gap-2 text-primary/80 transition-all duration-300 hover:text-primary'
-                onClick={() => onChangeType(imageTypes.Square)}
+                onClick={() => onChangeType(ImageTypeEnum.Square)}
               >
                 <SquareIcon
                   className={cn(
                     'stroke-[1.5px] transition-colors duration-300 group-hover:stroke-accent',
-                    settings.type === imageTypes.Square && 'stroke-accent',
+                    settings.type === ImageTypeEnum.Square && 'stroke-accent',
                   )}
                 />
-                {imageTypes.Square}
+                {ImageTypeEnum.Square}
               </button>
             </div>
             <Button

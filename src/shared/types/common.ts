@@ -1,13 +1,26 @@
-import { imageTypes, postTypes } from '@/shared/constants'
+import type {
+  ContentTypeEnum,
+  FileTypeEnum,
+  HttpHeaderEnum,
+  HttpMethodEnum,
+  ImageTypeEnum,
+  PostTypeEnum,
+} from '@/shared/constants'
 
-export type ImageType = (typeof imageTypes)[keyof typeof imageTypes]
+export type HttpHeaderType =
+  (typeof HttpHeaderEnum)[keyof typeof HttpHeaderEnum]
+export type ContentType = (typeof ContentTypeEnum)[keyof typeof ContentTypeEnum]
+export type HttpMethodType =
+  (typeof HttpMethodEnum)[keyof typeof HttpMethodEnum]
+
+export type ImageType = (typeof ImageTypeEnum)[keyof typeof ImageTypeEnum]
+export type PostType = (typeof PostTypeEnum)[keyof typeof PostTypeEnum]
+export type FileType = (typeof FileTypeEnum)[keyof typeof FileTypeEnum]
 
 export type ImageSettings = {
   type: ImageType
   sensitive: boolean
 }
-
-export type PostType = (typeof postTypes)[keyof typeof postTypes]
 
 export interface CustomMetadata {
   sensitive: boolean
@@ -20,4 +33,14 @@ export interface FileDetailsResponse {
   url: string
   fileType: string
   customMetadata?: CustomMetadata
+}
+
+export interface PaginatedResponse<T> {
+  data: T[]
+  first: number
+  items: number
+  last: number
+  next: number | null
+  pages: number
+  prev: number | null
 }
